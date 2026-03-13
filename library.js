@@ -1,7 +1,6 @@
 const books = []
 
-const tabela = document.querySelector("#books");
-// const tabelaCorpo = document.querySelector("#books td");
+const tabelaCorpo = document.querySelector("#books tbody");
 const addBtn = document.querySelector("#add");
 const modal = document.querySelector("#modal-container");
 const submitBtn = document.querySelector("#submit");
@@ -28,9 +27,7 @@ function addBooksToLibrary(t, a, p, r){
 
 function display(){
 
-    // if(books.length > 0){
-    //      tabelaCorpo.innerHTML = "";
-    // }
+    tabelaCorpo.innerHTML = "";
    
     for(let i = 0; i < books.length; i++){
         const novaLinha = document.createElement("tr");
@@ -58,7 +55,7 @@ function display(){
         novaLinha.appendChild(celulaPages);
         novaLinha.appendChild(celulaRead);
 
-        tabela.appendChild(novaLinha);
+        tabelaCorpo.appendChild(novaLinha);
     }
 }
 
