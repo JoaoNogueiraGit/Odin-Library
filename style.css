@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    border: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#header{
+    text-align: center;
+    font-weight: 900;
+    font-size: 30px;
+    padding: 20px;
+}
+
+#dash{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#buttons{
+    padding: 10px;
+}
+
+#add{
+    width: 100px;
+    height: 40px;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+#add{
+    background-color: rgb(29, 177, 29);
+}
+
+
+#add:hover{
+    cursor: pointer;
+    background-color: rgba(29, 177, 29, 0.8);
+}
+
+th{
+    font-size: 28px;
+    font-weight: 900px;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+#books{
+    font-size: 22px;
+    width: 850px;
+    height: 250px;
+}
+
+.modal-hidden {
+  display: none; /* Escondido por padrão */
+}
+
+.modal-visible {
+  display: flex; /* Mostra o modal */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content{
+    background-color: #ffffff; /* Garante que a caixa seja branca */
+    display: block;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+#close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+/* --- 4. Organização do Formulário dentro do Modal --- */
+#book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço entre cada campo */
+}
+
+#book-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.btn-add {
+  background-color: #27ae60;
+  color: white;
+  border-radius: 6px;
+}
+
+.btn-remove {
+  background-color: #c0392b;
+  color: white;
+  border-radius: 6px;
+}

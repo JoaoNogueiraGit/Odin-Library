@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        My Library
+    </div>
+    <div id="dash">
+        <table id="books">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Nº Pages</th>
+                <th>Read</th>
+            </tr>
+        </table>
+        <div id="buttons">
+            <button id="add">Add</button>
+        </div>
+    </div>
+
+    <div id="modal-container" class="modal-hidden">
+        <div class="modal-content">
+            <h2>Adicionar Novo Livro</h2>
+            <form id="book-form">
+                <div>
+                    <label for="title">Título</label>
+                    <input type="text" id="title" placeholder="Ex: O Senhor dos Anéis" required>
+                </div>
+
+                <div>
+                    <label for="author">Autor</label>
+                    <input type="text" id="author" placeholder="Ex: J.R.R. Tolkien" required>
+                </div>
+
+                <div>
+                    <label for="pages">Nº Páginas</label>
+                    <input type="number" id="pages" placeholder="Ex: 1178" required>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="read">
+                    <label for="read">Já leu este livro?</label>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit" id="submit" class="btn-submit btn-add">Adicionar</button>
+                    <button type="button" id="cancel" class="btn-submit btn-remove">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="library.js"></script>
+</body>
+</html>
