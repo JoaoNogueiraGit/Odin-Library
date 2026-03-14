@@ -20,6 +20,8 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+
+
 function addBooksToLibrary(t, a, p, r){
     const book = new Book(t, a, p, r);
     books.push(book);
@@ -31,11 +33,25 @@ function display(){
    
     for(let i = 0; i < books.length; i++){
         const novaLinha = document.createElement("tr");
+        novaLinha.id = "novaLinha";
         const celulaId = document.createElement("td");
         const celulaTitulo = document.createElement("td");
         const celulaAutor = document.createElement("td");
         const celulaPages = document.createElement("td");
         const celulaRead = document.createElement("td");
+        const celulaDelete = document.createElement("td");
+
+        const removeBtn = document.createElement("button");
+        removeBtn.className="removeBtn"; removeBtn.textContent = "X";
+
+        removeBtn.onclick = () => {
+            books.splice(i, 1);
+            display();
+        };
+
+        const celulaToggle = document.createElement("td");
+        const toggleRead = document.createElement("input");
+        toggleRead.type = "checkbox"; toggleRead.className = "toggle";
 
         celulaId.textContent = books[i].id;
         celulaTitulo.textContent = books[i].title;
@@ -44,16 +60,25 @@ function display(){
         
         if(books[i].read == false){
             celulaRead.textContent = "Não lido";
+            toggleRead.checked = false;
         }
         else{
             celulaRead.textContent = "Já leu";
+            toggleRead.checked = true;
         }
-        
+
         novaLinha.appendChild(celulaId);
         novaLinha.appendChild(celulaTitulo);
         novaLinha.appendChild(celulaAutor);
         novaLinha.appendChild(celulaPages);
         novaLinha.appendChild(celulaRead);
+        // novaLinha.appendChild(removeBtn);
+
+        celulaDelete.appendChild(removeBtn);
+        novaLinha.appendChild(celulaDelete);
+
+        celulaToggle.appendChild(toggleRead);
+        novaLinha.appendChild(celulaToggle);
 
         tabelaCorpo.appendChild(novaLinha);
     }
