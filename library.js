@@ -11,6 +11,7 @@ const inputAuthor = document.querySelector("#author");
 const inputPages = document.querySelector("#pages");
 const checkRead = document.querySelector("#read");
 
+
 function Book(title, author, pages, read) {
 
     this.id = crypto.randomUUID();
@@ -20,7 +21,9 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-
+Book.prototype.changeReadStatus = function(){
+    this.read = !this.read;
+}
 
 function addBooksToLibrary(t, a, p, r){
     const book = new Book(t, a, p, r);
@@ -51,21 +54,21 @@ function display(){
 
         const celulaToggle = document.createElement("td");
         const toggleRead = document.createElement("input");
-        toggleRead.type = "checkbox"; toggleRead.className = "toggle";
+        toggleRead.type = "checkbox"; 
+        toggleRead.className = "toggle";
+        toggleRead.checked = books[i].read
+
+        toggleRead.onclick = () => {
+            books[i].changeReadStatus();
+            display();
+        }
 
         celulaId.textContent = books[i].id;
         celulaTitulo.textContent = books[i].title;
         celulaAutor.textContent = books[i].author;
         celulaPages.textContent = books[i].pages;
         
-        if(books[i].read == false){
-            celulaRead.textContent = "Não lido";
-            toggleRead.checked = false;
-        }
-        else{
-            celulaRead.textContent = "Já leu";
-            toggleRead.checked = true;
-        }
+        celulaRead.textContent = books[i].read ? "Lido" : "Não Lido";
 
         novaLinha.appendChild(celulaId);
         novaLinha.appendChild(celulaTitulo);
